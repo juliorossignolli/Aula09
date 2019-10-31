@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    </head>
+    <body>
+        <div style="text-align: center; margin-top: 400px" id="mydiv"> 
+    </body>
+    <script type="text/babel">
+        class Contador extends React.Component {
+            state = { contador: 0};
+            render() {
+                return( 
+                    <div style={{"font-family": "Arial"}}>
+                        <button style={{"margin-bottom": "20px","background": "lightblue","height": "50px", "width": "400px", "border-radius": "10px"}} onClick={this.tratarIncremento}>
+                            <div>Click aqui</div>
+                        </button>
+                        <br/>
+                        <div >Quantidade de clicks:</div>
+                        <span style={{"color": "red", "font-size": "30px"}}>{this.state.contador}</span>
+                    </div> 
+                )
+            }              
+            tratarIncremento = () => {
+                this.setState({ contador: this.state.contador + 1 });
+            };
+        };
+        ReactDOM.render(<Contador />, document.getElementById('mydiv'))
+    </script>
+</html>
